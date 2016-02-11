@@ -266,10 +266,10 @@
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                             </div>
                             <!-- /input-group -->
                         </li>
@@ -348,11 +348,11 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">Blank Page</a>
+                                    <a class="active" href="blank.html">Blank Page</a>
                                 </li>
                                 <li>
                                     <a href="login.html">Login Page</a>
@@ -367,115 +367,127 @@
             <!-- /.navbar-static-side -->
         </nav>
 
+        <!-- Page Content -->
         <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Insertar Empleado</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Nuevo Empleado
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form" method="post" action="insert_rrhh.php">
-                                        <div class="form-group">
-                                            <label>Nombre</label>
-                                            <input class="form-control" placeholder="Nombre" name="nombre">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Primer Apellido:</label>
-                                            <input class="form-control" placeholder="Primer Apellido" name="apellido">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Segundo Apellido:</label>
-                                            <input class="form-control" placeholder="Segundo Apellido" name="apellido2">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>DNI</label>
-                                            <input class="form-control" placeholder="DNI" name="dni">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Fecha Nacimiento</label>
-                                            <input class="form-control" placeholder="Fecha Nacimiento" name="fecha_nac">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Fecha Entrada</label>
-                                            <input class="form-control" placeholder="Fecha Entrada" name="fecha_ent">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Departamento: </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" name="radio_departamento" value="option1" checked>Desarrollo
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2"
-                                                name="radio_departamento" value="option2">Sistemas
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" name="radio_departamento" value="option3">Testing
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Contrato: </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" 
-                                                name="radio_contrato" value="option1" checked>Indefinido
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" 
-                                                name="radio_contrato" value="option2">Temporal
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" 
-                                                name="radio_contrato" value="option3">Beca Estudios
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Puesto trabajo: </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" 
-                                                name="radio_puesto" value="option1" checked>Junior
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" 
-                                                name="radio_puesto" value="option2">Senior
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" 
-                                                name="radio_puesto" value="option3">Manager 
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" 
-                                                name="radio_puesto" value="option4">Directivo
-                                            </label>
-                                        </div>
-                                        <input type="submit" class="btn btn-default" name="enviar">Submit Button</input>
-                                    <input type="reset" class="btn btn-default">Reset Button</input>
-                                            </div>
-                                  
-                                        
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                              
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Blank</h1>
+                        <?php
+                        function insert_departamento($id_dept,$departamento){
+                            ////echo "<h1> Ejemplo - Insertar datos en una tabla </h1>";
+                            //Base de datos sobre la que vamos a crear la tabla
+                            $basedatos = "ERPDB";
+                            //conectamos con el servidor
+                            $link = mysqli_connect("localhost", "root", "", $basedatos);
+                            // comprobamos que hemos estabecido conexión en el servidor
+                            if (!$link){
+                            //echo "<h2 align='center'>ERROR: Imposible establecer conección con el servidor</h2>";
+                            exit;
+                            }
+                            // creamos el INSERT sobre la tabla FACTURAS
+                            $query = 'INSERT INTO Departamentos VALUES ('. $id_dept .', "'. $departamento .'")';
+                            // Realizamos la query
+                            if (mysqli_query($link, $query)) {
+                            echo "Datos guardados";
+                                return true;
+                            } else {
+                                $cadena = mysqli_error($link);
+                                $buscar = "Duplicate entry";
+                                $resultado = strpos($cadena, $buscar);
+
+                                if($resultado !== FALSE){
+                                    echo "Ese usuario ya existe";
+                                    return false;
+                                }
+                                echo "<h1>Registro Fallido</h1>";
+                                printf("Error: %s\n", mysqli_error($link));
+                            }
+
+                        }
+                         function insert_contrato($id_dept,$contrato){
+                            ////echo "<h1> Ejemplo - Insertar datos en una tabla </h1>";
+                            //Base de datos sobre la que vamos a crear la tabla
+                            $basedatos = "ERPDB";
+                            //conectamos con el servidor
+                            $link = mysqli_connect("localhost", "root", "", $basedatos);
+                            // comprobamos que hemos estabecido conexión en el servidor
+                            if (!$link){
+                            //echo "<h2 align='center'>ERROR: Imposible establecer conección con el servidor</h2>";
+                            exit;
+                            }
+                            // creamos el INSERT sobre la tabla FACTURAS
+                            $query = 'INSERT INTO Contratos VALUES ('. $id_dept .', "'. $contrato .'")';
+                            // Realizamos la query
+                            if (mysqli_query($link, $query)) {
+                            echo "Datos guardados";
+                                return true;
+                            } else {
+                                $cadena = mysqli_error($link);
+                                $buscar = "Duplicate entry";
+                                $resultado = strpos($cadena, $buscar);
+
+                                if($resultado !== FALSE){
+                                    echo "Ese usuario ya existe";
+                                    return false;
+                                }
+                                echo "<h1>Registro Fallido</h1>";
+                                printf("Error: %s\n", mysqli_error($link));
+                            }
+
+                        }
+                        
+                            function insert_puestos($id_dept,$nombre_puesto,$salario,$descripcion,$estudios_req){
+                            ////echo "<h1> Ejemplo - Insertar datos en una tabla </h1>";
+                            //Base de datos sobre la que vamos a crear la tabla
+                            $basedatos = "ERPDB";
+                            //conectamos con el servidor
+                            $link = mysqli_connect("localhost", "root", "", $basedatos);
+                            // comprobamos que hemos estabecido conexión en el servidor
+                            if (!$link){
+                            //echo "<h2 align='center'>ERROR: Imposible establecer conección con el servidor</h2>";
+                            exit;
+                            }
+                            // creamos el INSERT sobre la tabla FACTURAS
+                            $query = 'INSERT INTO Puestos VALUES ('. $id_dept .', "'. $nombre_puesto .'", '. $salario .', "'. $descripcion .'", "'. $estudios_req .'")';
+                            // Realizamos la query
+                            if (mysqli_query($link, $query)) {
+                            echo "Datos guardados";
+                                return true;
+                            } else {
+                                $cadena = mysqli_error($link);
+                                $buscar = "Duplicate entry";
+                                $resultado = strpos($cadena, $buscar);
+
+                                if($resultado !== FALSE){
+                                    echo "Ese usuario ya existe";
+                                    return false;
+                                }
+                                echo "<h1>Registro Fallido</h1>";
+                                printf("Error: %s\n", mysqli_error($link));
+                            }
+
+                        }
+                        
+                        insert_departamento(1,"Desarrollo");
+                        insert_departamento(2,"Sistemas");
+                        insert_departamento(3,"Testing");
+                        insert_contrato(1,"Fijo");
+                        insert_contrato(2,"Indefinido");
+                        insert_contrato(3,"Beca Estudios");
+                        insert_puestos(1,"Junior",15000,"Experiencia menor a 2 años","CFGM");
+                        insert_puestos(2,"Senior",22000,"Experiencia superior a 2 años","CFGS");
+                        insert_puestos(3,"Manager",30000,"Experiencia superior a 5 años","Ing Tecnico");
+                        insert_puestos(4,"Directivo",36000,"Experiencia superior a 10 años","Ing Tecnico");
+                        
+                        
+                        ?>
                     </div>
-                    <!-- /.panel -->
+                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
+            <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
 

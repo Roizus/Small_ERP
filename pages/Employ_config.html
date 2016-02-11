@@ -17,6 +17,9 @@
     <!-- MetisMenu CSS -->
     <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
+    <!-- Social Buttons CSS -->
+    <link href="../bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
@@ -367,113 +370,46 @@
             <!-- /.navbar-static-side -->
         </nav>
 
+        <!-- Page Content -->
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Insertar Empleado</h1>
+                    <h1 class="page-header">Configuración</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Nuevo Empleado
+                            Congiguración inicial
                         </div>
+                        <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form" method="post" action="insert_rrhh.php">
-                                        <div class="form-group">
-                                            <label>Nombre</label>
-                                            <input class="form-control" placeholder="Nombre" name="nombre">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Primer Apellido:</label>
-                                            <input class="form-control" placeholder="Primer Apellido" name="apellido">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Segundo Apellido:</label>
-                                            <input class="form-control" placeholder="Segundo Apellido" name="apellido2">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>DNI</label>
-                                            <input class="form-control" placeholder="DNI" name="dni">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Fecha Nacimiento</label>
-                                            <input class="form-control" placeholder="Fecha Nacimiento" name="fecha_nac">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Fecha Entrada</label>
-                                            <input class="form-control" placeholder="Fecha Entrada" name="fecha_ent">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Departamento: </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" name="radio_departamento" value="option1" checked>Desarrollo
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2"
-                                                name="radio_departamento" value="option2">Sistemas
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" name="radio_departamento" value="option3">Testing
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Contrato: </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" 
-                                                name="radio_contrato" value="option1" checked>Indefinido
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" 
-                                                name="radio_contrato" value="option2">Temporal
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" 
-                                                name="radio_contrato" value="option3">Beca Estudios
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Puesto trabajo: </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" 
-                                                name="radio_puesto" value="option1" checked>Junior
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" 
-                                                name="radio_puesto" value="option2">Senior
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" 
-                                                name="radio_puesto" value="option3">Manager 
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" 
-                                                name="radio_puesto" value="option4">Directivo
-                                            </label>
-                                        </div>
-                                        <input type="submit" class="btn btn-default" name="enviar">Submit Button</input>
-                                    <input type="reset" class="btn btn-default">Reset Button</input>
-                                            </div>
-                                  
-                                        
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                              
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                            <!-- /.row (nested) -->
+                            <h4>Normal Buttons</h4>
+                            <p>
+                                <a href="script.php"><button type="button" class="btn btn-default">Script Inicial</button></a>
+                                <a href="initial_inserts.php"><button type="button" class="btn btn-default">Inicializar</button></a>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-success">Success</button>
+                                <button type="button" class="btn btn-info">Info</button>
+                                <button type="button" class="btn btn-warning">Warning</button>
+                                <button type="button" class="btn btn-danger">Danger</button>
+                                <button type="button" class="btn btn-link">Link</button>
+                            </p>
+                            
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+           
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
         </div>
