@@ -431,7 +431,7 @@ function insert(){
     exit;
     }
     // creamos el INSERT sobre la tabla FACTURAS
-    $query = 'INSERT INTO empleados (dni,nombre,apellido1,apellido2,direccion,fecha_entrada,id_departamento,id_contrato,id_puesto_trab) VALUES ("'. $_POST['dni'] .'", "'. $_POST['nombre'].'", "'. $_POST['apellido'].'", "'. $_POST['apellido2'].'", "'. $_POST['direccion'].'", "'. $_POST['fecha_ent'].'", '.$id_departamento.', '.$id_contrato.', '.$id_puesto.')';
+    $query = 'INSERT INTO empleados (dni,nombre,apellido1,apellido2,direccion,fecha_nacimiento,fecha_entrada,id_departamento,id_contrato,id_puesto_trab) VALUES ("'. $_POST['dni'] .'", "'. $_POST['nombre'].'", "'. $_POST['apellido'].'", "'. $_POST['apellido2'].'", "'. $_POST['direccion'].'", "'. $_POST['fecha_nac'].'", "'. $_POST['fecha_ent'].'", '.$id_departamento.', '.$id_contrato.', '.$id_puesto.')';
     // Realizamos la query
     if (mysqli_query($link, $query)) {
     echo "Datos guardados";
@@ -465,6 +465,64 @@ function insert(){
                 }
 			
 ?> 
+                          <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Empleados de la empresa
+                        </div>
+						
+						
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Nº Empleado</th>
+                                            <th>DNI</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido 1</th>
+                                            <th>Apellido 2</th>
+                                            <th>Direccion</th>
+											<th>Fecha de nacimiento</th>
+											<th>Antiguedad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+											echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td><td>$row[7]</td></tr> \n";  
+											}
+										}
+										
+										?>
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                            
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

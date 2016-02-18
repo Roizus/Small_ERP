@@ -395,6 +395,7 @@
                                     <thead>
                                         <tr>
                                             <th>Nº Empleado</th>
+                                            <th>DNI</th>
                                             <th>Nombre</th>
                                             <th>Apellido 1</th>
                                             <th>Apellido 2</th>
@@ -425,7 +426,7 @@
 										
 										if (mysqli_num_rows($rs)!=0){
 											while ($row = mysqli_fetch_array($rs)){
-											echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td></tr> \n";  
+											echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td><td>$row[7]</td></tr> \n";  
 											}
 										}
 										
