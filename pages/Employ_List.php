@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +15,12 @@
 
     <!-- MetisMenu CSS -->
     <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
@@ -370,7 +375,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Insertar Empleado</h1>
+                    <h1 class="page-header">Listado de Empleados</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -379,99 +384,58 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Nuevo Empleado
+                            Empleados de la empresa
                         </div>
+						
+						
+                        <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form" method="post" action="insert_rrhh.php">
-                                        <div class="form-group">
-                                            <label>Nombre</label>
-                                            <input class="form-control" placeholder="Nombre" name="nombre" required>
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Primer Apellido:</label>
-                                            <input class="form-control" placeholder="Primer Apellido" name="apellido" required>
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Segundo Apellido:</label>
-                                            <input class="form-control" placeholder="Segundo Apellido" name="apellido2" required>
-                                        </div>
-                                         <div class="form-group">
-                                            <label>DNI</label>
-                                            <input class="form-control" placeholder="DNI" name="dni" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Fecha Nacimiento</label>
-                                            <input class="form-control" placeholder="Fecha Nacimiento" name="fecha_nac" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Fecha Entrada</label>
-                                            <input class="form-control" placeholder="Fecha Entrada" name="fecha_ent" required>
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Direccion</label>
-                                            <input class="form-control" placeholder="Direccion" name="direccion" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Departamento: </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline1" name="radio_departamento" value="option1" checked>Desarrollo
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline2"
-                                                name="radio_departamento" value="option2">Sistemas
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline3" name="radio_departamento" value="option3">Testing
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Contrato: </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline1" 
-                                                name="radio_contrato" value="option1" checked>Indefinido
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline2" 
-                                                name="radio_contrato" value="option2">Temporal
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" 
-                                                name="radio_contrato" value="option3">Beca Estudios
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Puesto trabajo: </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline1" 
-                                                name="radio_puesto" value="option1" checked>Junior
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline2" 
-                                                name="radio_puesto" value="option2">Senior
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline3" 
-                                                name="radio_puesto" value="option3">Manager 
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline3" 
-                                                name="radio_puesto" value="option4">Directivo
-                                            </label>
-                                        </div>
-                                        <input type="submit" class="btn btn-default" name="enviar"></input>
-                                        <input type="reset" class="btn btn-default"></input>
-                                            </div>
-                                  
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Nº Empleado</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido 1</th>
+                                            <th>Apellido 2</th>
+                                            <th>Direccion</th>
+											<th>Fecha de nacimiento</th>
+											<th>Antiguedad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                         
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                              
-                                <!-- /.col-lg-6 (nested) -->
+                                        <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+											echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td></tr> \n";  
+											}
+										}
+										
+										?>
+                                       
+                                    </tbody>
+                                </table>
                             </div>
-                            <!-- /.row (nested) -->
+                            <!-- /.table-responsive -->
+                            
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -480,6 +444,8 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            
+           
         </div>
         <!-- /#page-wrapper -->
 
@@ -495,8 +461,21 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
+    <!-- DataTables JavaScript -->
+    <script src="../bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+                responsive: true
+        });
+    });
+    </script>
 
 </body>
 

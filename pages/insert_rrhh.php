@@ -378,7 +378,51 @@
 function insert(){
     ////echo "<h1> Ejemplo - Insertar datos en una tabla </h1>";
     //Base de datos sobre la que vamos a crear la tabla
-    $basedatos = "datos_examen2";
+     if ($_POST['radio_departamento']) {
+            if($_POST['radio_departamento']=="option1"){
+            $id_departamento = 1;
+
+            }
+             elseif($_POST['radio_departamento']=="option2"){
+            $id_departamento = 2;
+
+            }
+             elseif($_POST['radio_departamento']=="option3"){
+            $id_departamento = 3;
+
+            }
+     }
+     if ($_POST['radio_contrato']) {
+            if($_POST['radio_contrato']=="option1"){
+            $id_contrato = 1;
+
+            }
+             elseif($_POST['radio_contrato']=="option2"){
+            $id_contrato = 2;
+
+            }
+             elseif($_POST['radio_contrato']=="option3"){
+            $id_contrato = 3;
+
+            }
+     }
+     if ($_POST['radio_puesto']) {
+              if($_POST['radio_puesto']=="option1"){
+            $id_puesto = 1;
+
+            }
+             elseif($_POST['radio_puesto']=="option2"){
+            $id_puesto = 2;
+
+            }
+             elseif($_POST['radio_puesto']=="option3"){
+            $id_puesto = 3;
+
+            }
+     }
+    
+    
+    $basedatos = "ERPDB";
     //conectamos con el servidor
     $link = mysqli_connect("localhost", "root", "", $basedatos);
     // comprobamos que hemos estabecido conexión en el servidor
@@ -387,7 +431,7 @@ function insert(){
     exit;
     }
     // creamos el INSERT sobre la tabla FACTURAS
-    $query = 'INSERT INTO empleados VALUES ("'. $_POST['nombre'] .'", "'. $_POST['apellido'].'", "'. $_POST['nif'].'", "'. $_POST['sueldo'].'", "'. $_POST['radio'].'")';
+    $query = 'INSERT INTO empleados (dni,nombre,apellido1,apellido2,direccion,fecha_entrada,id_departamento,id_contrato,id_puesto_trab) VALUES ("'. $_POST['dni'] .'", "'. $_POST['nombre'].'", "'. $_POST['apellido'].'", "'. $_POST['apellido2'].'", "'. $_POST['direccion'].'", "'. $_POST['fecha_ent'].'", '.$id_departamento.', '.$id_contrato.', '.$id_puesto.')';
     // Realizamos la query
     if (mysqli_query($link, $query)) {
     echo "Datos guardados";
@@ -401,8 +445,8 @@ function insert(){
             echo "Ese usuario ya existe";
             return false;
         }
-        //echo "<h1>Registro Fallido</h1>";
-        //printf("Error: %s\n", mysqli_error($link));
+        echo "<h1>Registro Fallido</h1>";
+        printf("Error: %s\n", mysqli_error($link));
     }
     
 }
@@ -411,25 +455,15 @@ function insert(){
 
         
         if ($_POST['enviar']) {
-            if(comprobar_documento_identificacion($_POST['nif'])==false || comprobar_sueldo()==false){
-                echo "Revise los datos introducidos</br>";
-                echo '</br><a href="insertar.html" id="boton"  class="action" name="volver" style="text-decoration:none">Volver</a>';
-            }
-            else{
+           
                 echo "Guardando en BBDD...</br>";
-                create_bbdd();
-				
-				create_table();
-				
-                $insertado=insert();
+                insert();
+                echo '</br></br><a href="Employ_Insert.html" id="boton"  class="action" name="volver" style="text-decoration:none">Volver</a>';
                 
-				if($insertado==false){
-                    echo '</br></br><a href="insertar.html" id="boton"  class="action" name="volver" style="text-decoration:none">Volver</a>';
-                }
                 
                 
                 }
-			}
+			
 ?> 
                     </div>
                     <!-- /.col-lg-12 -->
