@@ -370,7 +370,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Insertar Empleado</h1>
+                    <h1 class="page-header">Editar Empleado</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -379,12 +379,40 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Nuevo Empleado
+                         Empleado a editar
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" method="post" action="insert_rrhh.php">
+                                    <form role="form" method="post" action="insert_rrhh_edit.php">
+                                        <div class="form-group">
+                                            <label>ID Empleado</label>
+                                            <input class="form-control" name="id" value="<?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados where Id_empleado=". $_POST['id'].";";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+											echo $row[0];  
+											}
+										}
+										
+										?>"required></input>
+                                        </div>
                                         <div class="form-group">
                                             <label>Nombre</label>
                                             <input class="form-control" name="nombre" value="<?php
@@ -582,7 +610,10 @@
 										?>" required>
                                         </div>
                                         <div class="form-group">
-                                             value="<?php
+                            
+                                            <label>Departamento: </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" id="optionsRadiosInline1" name="radio_departamento" value="option1" <?php
 						
 										
 										$dir="localhost:3306";
@@ -602,55 +633,288 @@
 										
 										if (mysqli_num_rows($rs)!=0){
 											while ($row = mysqli_fetch_array($rs)){
-											echo $row[2];  
+                                                if ($row[8]==1) {
+											     echo "checked";
+                                                }
 											}
 										}
 										
-										?>"
-                                            <label>Departamento: </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline1" name="radio_departamento" value="option1" checked>Desarrollo
+										?>>Desarrollo
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" id="optionsRadiosInline2"
-                                                name="radio_departamento" value="option2">Sistemas
+                                                name="radio_departamento" value="option2" <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados where Id_empleado=". $_POST['id'].";";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+                                                if ($row[8]==2) {
+											     echo "checked";
+                                                }
+											}
+										}
+										
+										?>>Sistemas
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" id="optionsRadiosInline3" name="radio_departamento" value="option3">Testing
+                                                <input type="radio" id="optionsRadiosInline3" name="radio_departamento" value="option3" <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados where Id_empleado=". $_POST['id'].";";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+                                                if ($row[8]==3) {
+											     echo "checked";
+                                                }
+											}
+										}
+										
+										?>>Testing
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>Contrato: </label>
                                             <label class="radio-inline">
                                                 <input type="radio" id="optionsRadiosInline1" 
-                                                name="radio_contrato" value="option1" checked>Indefinido
+                                                name="radio_contrato" value="option1" <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados where Id_empleado=". $_POST['id'].";";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+                                                if ($row[9]==1) {
+											     echo "checked";
+                                                }
+											}
+										}
+										
+										?>>Indefinido
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" id="optionsRadiosInline2" 
-                                                name="radio_contrato" value="option2">Temporal
+                                                name="radio_contrato" value="option2" <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados where Id_empleado=". $_POST['id'].";";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+                                                if ($row[9]==2) {
+											     echo "checked";
+                                                }
+											}
+										}
+										
+										?>>Temporal
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" 
-                                                name="radio_contrato" value="option3">Beca Estudios
+                                                name="radio_contrato" value="option3" <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados where Id_empleado=". $_POST['id'].";";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+                                                if ($row[9]==3) {
+											     echo "checked";
+                                                }
+											}
+										}
+										
+										?>>Beca Estudios
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>Puesto trabajo: </label>
                                             <label class="radio-inline">
                                                 <input type="radio" id="optionsRadiosInline1" 
-                                                name="radio_puesto" value="option1" checked>Junior
+                                                name="radio_puesto" value="option1" <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados where Id_empleado=". $_POST['id'].";";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+                                                if ($row[10]==1) {
+											     echo "checked";
+                                                }
+											}
+										}
+										
+										?>>Junior
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" id="optionsRadiosInline2" 
-                                                name="radio_puesto" value="option2">Senior
+                                                name="radio_puesto" value="option2" <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados where Id_empleado=". $_POST['id'].";";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+                                                if ($row[10]==2) {
+											     echo "checked";
+                                                }
+											}
+										}
+										
+										?>>Senior
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" id="optionsRadiosInline3" 
-                                                name="radio_puesto" value="option3">Manager 
+                                                name="radio_puesto" value="option3" <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados where Id_empleado=". $_POST['id'].";";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+                                                if ($row[10]==3) {
+											     echo "checked";
+                                                }
+											}
+										}
+										
+										?>>Manager 
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" id="optionsRadiosInline3" 
-                                                name="radio_puesto" value="option4">Directivo
+                                                name="radio_puesto" value="option4" <?php
+						
+										
+										$dir="localhost:3306";
+										$usr="root";
+										$nom="erpdb";
+										
+										$link = mysqli_connect($dir, $usr, "", $nom);
+										
+										// comprobamos que hemos establecido conexión en el servidor
+										if (!$link){
+											exit;
+											echo "error";
+										}
+											
+										$ssql = "select * from empleados where Id_empleado=". $_POST['id'].";";
+										$rs = mysqli_query($link, $ssql);
+										
+										if (mysqli_num_rows($rs)!=0){
+											while ($row = mysqli_fetch_array($rs)){
+                                                if ($row[10]==4) {
+											     echo "checked";
+                                                }
+											}
+										}
+										
+										?>>Directivo
                                             </label>
                                         </div>
                                         <input type="submit" class="btn btn-default" name="enviar"></input>
